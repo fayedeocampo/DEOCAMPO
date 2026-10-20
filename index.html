@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discover Cordillera | CAR Tourism</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "DM Sans", "Trebuchet MS", sans-serif;
+      background: #fffafd;
+      color: #62566b;
+      line-height: 1.8;
+    }
+
+    header {
+      text-align: center;
+      padding: 42px 20px;
+      background: #f0e5fa;
+    }
+
+    header h1 {
+      font-family: "Playfair Display", Georgia, serif;
+      color: #806497;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      margin: 0;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      margin: 8px 0 0;
+      color: #796b83;
+    }
+
+    nav {
+      background: #e5efff;
+      padding: 12px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav a {
+      display: inline-block;
+      margin: 4px 8px;
+      color: #62566b;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #b477a1;
+    }
+
+    section {
+      padding: 55px 8%;
+      scroll-margin-top: 75px;
+    }
+
+    section h2 {
+      font-family: "Playfair Display", Georgia, serif;
+      text-align: center;
+      color: #9274a8;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin: 0 0 28px;
+    }
+
+    h3 {
+      font-family: "Playfair Display", Georgia, serif;
+      color: #a2769b;
+      line-height: 1.4;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 90px 20px;
+      background: linear-gradient(135deg, #fceaf4, #e8efff, #f1e7fa);
+    }
+
+    .hero h2 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto 24px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 11px 25px;
+      border-radius: 30px;
+      background: #ad91c8;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .button:hover {
+      background: #9070ad;
+      transform: translateY(-2px);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: white;
+      padding: 18px;
+      border: 1px solid #f0e5f3;
+      border-radius: 18px;
+      box-shadow: 0 6px 22px rgba(130, 102, 148, 0.08);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card h3 {
+      margin: 14px 0 6px;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .card img {
+      width: 100%;
+      height: 205px;
+      object-fit: cover;
+      display: block;
+      border-radius: 12px;
+    }
+
+    .soft {
+      background: #f7f0fc;
+    }
+
+    .blue {
+      background: #eff5ff;
+    }
+
+    .pink {
+      background: #fff0f6;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .fact {
+      text-align: center;
+      background: white;
+      padding: 18px 12px;
+      border-radius: 16px;
+    }
+
+    .fact h3 {
+      font-size: 1.3rem;
+      margin: 0;
+    }
+
+    .fact p {
+      font-size: 13px;
+      margin: 4px 0 0;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 235px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(130, 102, 148, 0.12);
+      transition: transform 0.25s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.02);
+    }
+
+    .intro {
+      max-width: 850px;
+      margin: 0 auto 28px;
+      text-align: center;
+    }
+
+    .media {
+      max-width: 760px;
+      margin: 30px auto;
+      text-align: center;
+    }
+
+    .media iframe {
+      width: 100%;
+      border: 0;
+      border-radius: 16px;
+    }
+
+    .audio-link {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 12px 22px;
+      background: white;
+      border: 1px solid #dfd0ef;
+      border-radius: 14px;
+      color: #806497;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .audio-link:hover {
+      background: #f7eaf8;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    footer {
+      background: #e9def5;
+      text-align: center;
+      padding: 25px 15px;
+      font-size: 13px;
+    }
+
+    footer p {
+      margin: 4px 0;
+    }
+
+    @media (max-width: 600px) {
+      section {
+        padding: 40px 5%;
+      }
+
+      nav {
+        position: static;
+      }
+
+      nav a {
+        margin: 4px 6px;
+      }
+
+      .hero {
+        padding: 65px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Discover Cordillera</h1>
+    <p>A little journey through the beauty of the Philippine highlands</p>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#attractions">Attractions</a>
+    <a href="#activities">Activities</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#culture">Food & Culture</a>
+    <a href="#travel">Travel Guide</a>
+    <a href="#accommodations">Accommodations</a>
+    <a href="#events">Events</a>
+    <a href="#media">Media</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section class="hero" id="home">
+    <h2>Discover the Beauty of Cordillera</h2>
+    <p>
+      From breathtaking mountain landscapes to ancient rice terraces,
+      the Cordillera Administrative Region offers a beautiful blend
+      of nature, history, and living cultural traditions.
+    </p>
+    <a class="button" href="#attractions">Explore the Highlands</a>
+  </section>
+
+  <section id="about">
+    <h2>About the Cordillera Region</h2>
+    <p class="intro">
+      The Cordillera Administrative Region (CAR) is located in Northern
+      Luzon, Philippines. It is known for its cool highlands, mountain
+      scenery, traditional weaving, and remarkable cultural heritage.
+      CAR includes Abra, Apayao, Benguet, Ifugao, Kalinga, Mountain
+      Province, and the highly urbanized city of Baguio.
+    </p>
+
+    <div class="facts">
+      <div class="fact">
+        <h3>Highlands</h3>
+        <p>Mountain landscapes and cool weather</p>
+      </div>
+      <div class="fact">
+        <h3>Heritage</h3>
+        <p>Rich traditions and local craftsmanship</p>
+      </div>
+      <div class="fact">
+        <h3>Nature</h3>
+        <p>Terraces, forests, and waterfalls</p>
+      </div>
+      <div class="fact">
+        <h3>Culture</h3>
+        <p>Distinct communities and traditions</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="soft" id="attractions">
+    <h2>Beautiful Tourist Attractions</h2>
+
+    <div class="cards">
+      <div class="card">
+        <img src="images/Banaue Rice Terraces.jpeg"
+             alt="Banaue Rice Terraces">
+        <h3>Banaue Rice Terraces</h3>
+        <p>
+          These remarkable terraces reflect generations of Ifugao
+          knowledge and agricultural traditions, surrounded by
+          beautiful mountain scenery.
+        </p>
+      </div>
+
+      <div class="card">
+        <img src="images/Mount Pulag.jpg" alt="Mount Pulag">
+        <h3>Mount Pulag</h3>
+        <p>
+          A popular mountain destination known for its highland
+          landscapes, sunrise views, and sea of clouds.
+        </p>
+      </div>
+
+      <div class="card">
+        <img src="images/Baguio City.jpeg" alt="Baguio City">
+        <h3>Baguio City</h3>
+        <p>
+          Known as the Summer Capital of the Philippines, Baguio
+          features parks, markets, gardens, and a cool climate.
+        </p>
+      </div>
+
+      <div class="card">
+        <img src="images/Sagada.jpg" alt="Sagada">
+        <h3>Sagada</h3>
+        <p>
+          A peaceful mountain destination known for its caves,
+          scenic views, and distinctive cultural heritage.
+        </p>
+      </div>
+
+      <div class="card">
+        <img src="images/Kaparkan Falls.jpg" alt="Kaparkan Falls">
+        <h3>Kaparkan Falls</h3>
+        <p>
+          Located in Abra, this natural attraction is admired for
+          its cascading waters and distinctive limestone formations.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="activities">
+    <h2>Things to Do</h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Mountain Hiking</h3>
+        <p>Explore mountain trails and admire the scenic highlands.</p>
+      </div>
+
+      <div class="card">
+        <h3>Nature Photography</h3>
+        <p>Capture beautiful landscapes, forests, and waterfalls.</p>
+      </div>
+
+      <div class="card">
+        <h3>Cultural Exploration</h3>
+        <p>Learn about local traditions, weaving, and craftsmanship.</p>
+      </div>
+
+      <div class="card">
+        <h3>Local Market Visits</h3>
+        <p>Discover fresh produce, handmade crafts, and souvenirs.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="blue" id="gallery">
+    <h2>Photo Gallery</h2>
+    <p class="intro">
+      A glimpse of the scenic destinations waiting to be explored
+      throughout the Cordillera highlands.
+    </p>
+
+    <div class="cards gallery">
+      <img src="images/Baguio City.jpeg" alt="Baguio City">
+      <img src="images/Banaue Rice Terraces.jpeg"
+           alt="Banaue Rice Terraces">
+      <img src="images/Kaparkan Falls.jpg" alt="Kaparkan Falls">
+      <img src="images/Mount Pulag.jpg" alt="Mount Pulag">
+      <img src="images/Sagada.jpg" alt="Sagada">
+    </div>
+  </section>
+
+  <section id="culture">
+    <h2>Food and Culture</h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Pinikpikan</h3>
+        <p>
+          A traditional Cordilleran dish associated with cultural
+          practices and community gatherings.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Strawberries</h3>
+        <p>
+          Baguio and nearby highland areas are popular for fresh
+          strawberries and strawberry-based treats.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Traditional Weaving</h3>
+        <p>
+          Local weaving showcases distinctive patterns, techniques,
+          and cultural identities across communities.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Handicrafts</h3>
+        <p>
+          Handmade products reflect the creativity and heritage
+          of Cordilleran artisans.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pink" id="travel">
+    <h2>Travel Guide</h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Best Time to Visit</h3>
+        <p>
+          The dry season is generally suitable for outdoor trips.
+          Check weather conditions before visiting mountain areas.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Transportation</h3>
+        <p>
+          Baguio is accessible by bus from Metro Manila. Other
+          destinations may require local buses or vans.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>What to Bring</h3>
+        <p>
+          Prepare warm clothing, comfortable footwear, drinking water,
+          and rain protection for changing mountain weather.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Responsible Travel</h3>
+        <p>
+          Respect local customs, follow community guidelines,
+          and leave natural places clean.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="accommodations">
+    <h2>Where to Stay</h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Hotels</h3>
+        <p>
+          Hotels in major destinations offer convenient access
+          to restaurants, shops, and attractions.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Guesthouses</h3>
+        <p>
+          Guesthouses and homestays can offer a welcoming way
+          to experience local hospitality.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Mountain Lodging</h3>
+        <p>
+          Some highland destinations have simple accommodations
+          near hiking trails and nature spots.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="soft" id="events">
+    <h2>Festivals and Events</h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Panagbenga Festival</h3>
+        <p>
+          Baguio's Flower Festival celebrates flowers, creativity,
+          and the culture of the city.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Lang-ay Festival</h3>
+        <p>
+          A cultural celebration in Mountain Province that
+          showcases local heritage and traditions.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Community Celebrations</h3>
+        <p>
+          Various communities celebrate their distinct customs,
+          cultural practices, and local heritage.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="blue" id="media">
+    <h2>Video and Audio</h2>
+
+    <div class="media">
+      <h3>Explore the Cordillera</h3>
+      <iframe
+        src="https://www.youtube.com/embed/JX7pi1u9F0E"
+        title="Cordillera tourism video"
+        height="350"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="media">
+      <h3>Listen to the Audio</h3>
+      <p>
+        Open the audio link below to listen in a separate tab.
+      </p>
+      <a class="audio-link"
+         href="https://youtu.be/0qlglfmnJRY?si=8HAo5M16nMLTn9y4"
+         target="_blank"
+         rel="noopener noreferrer">
+        Listen to Audio
+      </a>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact and Learn More</h2>
+    <p>
+      Discover the natural beauty and cultural heritage of the
+      Cordillera Administrative Region, and travel responsibly
+      while supporting local communities.
+    </p>
+  </section>
+
+  <footer>
+    <p>Discover Cordillera | Tourism Website</p>
+    <p>Made by: Faye M. Deocampo</p>
+    <p>© 2026 All Rights Reserved</p>
+  </footer>
+
+</body>
+</html>
